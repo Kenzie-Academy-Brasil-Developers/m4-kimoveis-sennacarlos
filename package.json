@@ -18,7 +18,9 @@
     "supertest": "^6.2.4",
     "ts-jest": "^28.0.5",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/bcryptjs": "^2.4.2"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
@@ -26,6 +28,9 @@
     "express-async-errors": "^3.1.1",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.17"
+    "typeorm": "^0.3.17",
+    "zod": "^3.21.4",
+    "jsonwebtoken": "^9.0.0",
+    "bcryptjs": "^2.4.3"
   }
 }
