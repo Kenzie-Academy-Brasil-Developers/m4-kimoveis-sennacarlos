@@ -24,14 +24,16 @@ const create = async (
 const retrieve = async (
     realEstateId: number
 ): Promise<RealEstate> => {
-    const realEstate = await realEstateRepository
-    .createQueryBuilder("r")
-    .leftJoinAndSelect("r.schedules", "s")
-    .leftJoinAndSelect("s.user", "u")
-    .leftJoinAndSelect("r.address", "a")
-    .leftJoinAndSelect("r.category", "c")
-    .where("r.id = :realEstateId", {realEstateId: realEstateId})
-    .getOne()
+    const realEstate: RealEstate | null = await realEstateRepository.findOne({
+        where: { id: realEstateId},
+        relations: {
+            address: true,
+            category: true,
+            schedules: {
+                user: true
+            }
+        }
+    });
 
     if (!realEstate) throw new AppError("RealEstate not found", 404)
 
